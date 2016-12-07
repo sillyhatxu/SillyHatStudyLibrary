@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SillyHatStudyLibrary-appweb:war">
+    <output-path>$PROJECT_DIR$/SillyHatStudyLibrary-appweb/target</output-path>
+    <root id="archive" name="SillyHatStudyLibrary-appweb.war">
+      <element id="artifact" artifact-name="SillyHatStudyLibrary-appweb:war exploded" />
+    </root>
+  </artifact>
+</component>

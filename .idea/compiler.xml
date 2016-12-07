@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SillyHatStudyLibrary-admin" />
+        <module name="SillyHatStudyLibrary-appweb" />
+        <module name="SillyHatStudyLibrary-common" />
+        <module name="SillyHatStudyLibrary-email" />
+        <module name="SillyHatStudyLibrary-mybatisBasic" />
+        <module name="SillyHatStudyLibrary-organization" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SillyHatStudyLibrary" target="1.5" />
+      <module name="SillyHatStudyLibrary-admin" target="1.5" />
+      <module name="SillyHatStudyLibrary-appweb" target="1.5" />
+      <module name="SillyHatStudyLibrary-common" target="1.5" />
+      <module name="SillyHatStudyLibrary-email" target="1.5" />
+      <module name="SillyHatStudyLibrary-mybatisBasic" target="1.5" />
+      <module name="SillyHatStudyLibrary-organization" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

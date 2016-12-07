@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-admin/SillyHatStudyLibrary-admin.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-admin/SillyHatStudyLibrary-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-appweb/SillyHatStudyLibrary-appweb.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-appweb/SillyHatStudyLibrary-appweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-common/SillyHatStudyLibrary-common.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-common/SillyHatStudyLibrary-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-email/SillyHatStudyLibrary-email.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-email/SillyHatStudyLibrary-email.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-mybatisBasic/SillyHatStudyLibrary-mybatisBasic.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-mybatisBasic/SillyHatStudyLibrary-mybatisBasic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-organization/SillyHatStudyLibrary-organization.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-organization/SillyHatStudyLibrary-organization.iml" />
+    </modules>
+  </component>
+</project>
