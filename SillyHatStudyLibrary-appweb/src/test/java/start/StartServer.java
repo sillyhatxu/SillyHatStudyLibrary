@@ -1,7 +1,6 @@
 package start;
 
 import com.sillyhat.jetty.factory.JettyFactory;
-
 import org.eclipse.jetty.server.Server;
 
 public class StartServer {
