@@ -7,7 +7,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.sillyhat.studylibrary</groupId>
     <artifactId>SillyHatStudyLibrary-admin</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>SillyHatStudyLibrary-admin</name>

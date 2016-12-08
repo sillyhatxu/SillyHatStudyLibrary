@@ -57,8 +57,10 @@
 <!-- 	<tx:annotation-driven transaction-manager="transactionManager"/> -->
 
 	
-	<bean id="beforeAdvice" class="com.xusk.interceptor.MyMethodBeforeAdvice" />
-	<bean id="afterAdvice" class="com.xusk.interceptor.MyAfterReturningAdvice" />
+	<bean id="beforeAdvice" class="com.sillyhat.project.interceptor.MyMethodBeforeAdvice" />
+
+	<bean id="afterAdvice" class="com.sillyhat.project.interceptor.MyAfterReturningAdvice" />
+
 	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
 		<property name="transactionManager">
 			<ref bean="transactionManager" />
@@ -93,7 +95,7 @@
 		</property>
 	</bean>
 	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
-	<context:component-scan base-package="com.xusk" />
+	<context:component-scan base-package="com.sillyhat" />
 	<!--配置哪些方法,什么情况下需要回滚--> 
 <!-- 	<tx:advice id="serviceAdvice" transaction-manager="transactionManager">   -->
 <!-- 	    <tx:attributes>    -->

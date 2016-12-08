@@ -10,6 +10,7 @@
 
     <groupId>com.sillyhat.studylibrary</groupId>
     <artifactId>SillyHatStudyLibrary-projectBasic</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>SillyHatStudyLibrary-projectBasic</name>

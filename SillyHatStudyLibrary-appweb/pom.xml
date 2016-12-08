@@ -7,8 +7,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sillyhat.studylibrary</groupId>
     <artifactId>SillyHatStudyLibrary-appweb</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
+
     <name>SillyHatStudyLibrary-appweb Maven Webapp</name>
     <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
 
@@ -25,8 +29,52 @@
             <groupId>com.sillyhat.JettyServer</groupId>
             <artifactId>SillyHat-JettyServer</artifactId>
             <version>1.0</version>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-organization</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-admin</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-email</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-mybatisBasic</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-projectBasic</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sillyhat.studylibrary</groupId>
+            <artifactId>SillyHatStudyLibrary-jbpm</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
 
     </dependencies>
 
