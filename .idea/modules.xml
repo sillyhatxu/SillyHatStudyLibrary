@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-email/SillyHatStudyLibrary-email.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-email/SillyHatStudyLibrary-email.iml" />
       <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-mybatisBasic/SillyHatStudyLibrary-mybatisBasic.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-mybatisBasic/SillyHatStudyLibrary-mybatisBasic.iml" />
       <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-organization/SillyHatStudyLibrary-organization.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-organization/SillyHatStudyLibrary-organization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SillyHatStudyLibrary-projectBasic/SillyHatStudyLibrary-projectBasic.iml" filepath="$PROJECT_DIR$/SillyHatStudyLibrary-projectBasic/SillyHatStudyLibrary-projectBasic.iml" />
     </modules>
   </component>
 </project>

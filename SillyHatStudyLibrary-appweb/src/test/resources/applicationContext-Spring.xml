@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/task  
+	http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
+	
+	<bean id="propertyConfigurer" class="com.xusk.system.frame.MyPropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:database.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver" value="${database-0.connection.driver}"/>
+		<property name="driverUrl" value="${database-0.connection.url}" />
+		<property name="user" value="${database-0.connection.username}" />
+		<property name="password" value="${database-0.connection.password}" />
+		<property name="alias" value="${database-0.proxool.alias}" />
+		<property name="maximumActiveTime" value="${database-0.proxool.maximum.active.time}" />
+		<property name="houseKeepingTestSql" value="${database-0.proxool.house.keeping.test.sql}" />
+		<property name="houseKeepingSleepTime" value="${database-0.proxool.house.keeping.sleep.time}" />
+		<property name="prototypeCount" value="${database-0.proxool.prototype.count}" />
+		<property name="maximumConnectionCount" value="${database-0.proxool.maximum.connection.count}" />
+		<property name="minimumConnectionCount" value="${database-0.proxool.minimum.connection.count}" />
+		<property name="simultaneousBuildThrottle" value="${database-0.simultaneous.build.throttle}" />
+		<property name="maximumConnectionLifetime" value="${database-0.proxool.maximum.connection.lifetime}" />
+	</bean>
+	<!-- 配置事务管理器 -->  
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+	    <property name="dataSource" ref="dataSource" />  
+	</bean>
+	<!-- 配置sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath*:com/xusk/procedure/*/*/mapping/*Mapper.xml" />
+	</bean>
+	<!-- 采用自动扫描方式创建mapper bean(单个更新模式) -->  
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+	    <property name="basePackage" value="com.xusk.procedure.*.*.dao.impl" />  
+	</bean>
+	
+	<!-- 使用annotation定义事务 -->
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" /> -->
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager"/> -->
+
+	
+	<bean id="beforeAdvice" class="com.xusk.interceptor.MyMethodBeforeAdvice" />
+	<bean id="afterAdvice" class="com.xusk.interceptor.MyAfterReturningAdvice" />
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="create*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="del*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="auto*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="*">readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 自动代理 -->
+	<bean id="autoproxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*ServiceImpl</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>beforeAdvice</value>
+				<value>transactionInterceptor</value>
+				<value>afterAdvice</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.xusk" />
+	<!--配置哪些方法,什么情况下需要回滚--> 
+<!-- 	<tx:advice id="serviceAdvice" transaction-manager="transactionManager">   -->
+<!-- 	    <tx:attributes>    -->
+<!-- 	        <tx:method name="save*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>  -->
+<!-- 	        <tx:method name="add*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>  -->
+<!-- 	        <tx:method name="insert*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>  -->
+<!-- 	        <tx:method name="del*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>   -->
+<!-- 	        <tx:method name="update*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>   -->
+<!-- 	        <tx:method name="create*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>   -->
+<!-- 	        <tx:method name="remove*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>   -->
+<!-- 	        <tx:method name="auto*" propagation="REQUIRED" rollback-for="com.xusk.system.exception.ServiceException"/>   -->
+<!-- 	        <tx:method name="*" read-only="true"/>   -->
+<!-- 	    </tx:attributes>   -->
+<!-- 	</tx:advice> -->
+<!-- 	<aop:config>   -->
+<!-- 		<aop:pointcut id="servicePointcut" expression="execution(* com.xusk.procedure.*.*.service.*.*(..))"/>   -->
+<!-- 		<aop:advisor pointcut-ref="servicePointcut" advice-ref="serviceAdvice"/> -->
+<!-- 	</aop:config> -->
+	
+</beans>

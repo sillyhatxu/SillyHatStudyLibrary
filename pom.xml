@@ -13,6 +13,7 @@
         <module>SillyHatStudyLibrary-email</module>
         <module>SillyHatStudyLibrary-appweb</module>
         <module>SillyHatStudyLibrary-mybatisBasic</module>
+        <module>SillyHatStudyLibrary-projectBasic</module>
     </modules>
     <packaging>pom</packaging>
 
