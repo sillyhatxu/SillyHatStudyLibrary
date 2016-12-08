@@ -14,7 +14,7 @@
 	http://www.springframework.org/schema/task  
 	http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
 	
-	<bean id="propertyConfigurer" class="com.xusk.system.frame.MyPropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer" class="com.sillyhat.project.basic.SillyHatPropertyConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath:database.properties</value>
