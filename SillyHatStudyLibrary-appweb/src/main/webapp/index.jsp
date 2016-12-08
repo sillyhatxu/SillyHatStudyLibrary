@@ -6,6 +6,6 @@
 </head>
 <body>
     IDEA-------IDE使用Jetty容器部署成功
-SillyHatStudyLibrary
+SillyHatStudyLibrary  index
 </body>
 </html>

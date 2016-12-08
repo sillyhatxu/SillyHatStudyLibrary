@@ -13,6 +13,7 @@
         <module name="SillyHatStudyLibrary-jbpm" />
         <module name="SillyHatStudyLibrary-mybatisBasic" />
         <module name="SillyHatStudyLibrary-organization" />
+        <module name="SillyHatStudyLibrary-projectBasic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,6 +25,7 @@
       <module name="SillyHatStudyLibrary-jbpm" target="1.5" />
       <module name="SillyHatStudyLibrary-mybatisBasic" target="1.5" />
       <module name="SillyHatStudyLibrary-organization" target="1.5" />
+      <module name="SillyHatStudyLibrary-projectBasic" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
